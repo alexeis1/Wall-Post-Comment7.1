@@ -1,16 +1,11 @@
 package ru.netology.lesson6.attachment
 
-/**
- * Объект, описывающий документ
- */
-
-data class AttachmentDocument(
-    val doc : AttachmentDocumentContent = AttachmentDocumentContent()
-) : Attachment()
+import kotlinx.serialization.Serializable
 
 /**
  * Содержимое прикрепления
  */
+@Serializable
 data class AttachmentDocumentContent (
     val id      : Int = 0 	 , // идентификатор документа.
     val ownerId : Int = 0 	 , // идентификатор пользователя, загрузившего документ.
@@ -26,6 +21,7 @@ data class AttachmentDocumentContent (
 /**
  * Document Preview
  */
+@Serializable
 data class Preview (
     val photo         : PhotoPreview?    = null,
     val graffiti      : GraffitiPreview? = null,
@@ -35,6 +31,7 @@ data class Preview (
 /**
  *  Preview Preview
  */
+@Serializable
 data class AudioPreview (
     val duration : Int = 0, // длительность аудиосообщения в секундах;
     val waveform : Array<Int> = emptyArray<Int>() , // массив значений (integer) для визуального отображения звука;
@@ -68,6 +65,7 @@ data class AudioPreview (
 /**
  *  Preview Graffiti
  */
+@Serializable
 data class GraffitiPreview (
     val src    : String = "",// — URL документа с граффити;
     val width  : Int = 0,    // — ширина изображения в px;
@@ -76,6 +74,7 @@ data class GraffitiPreview (
 /**
  *  Preview Photo
  */
+@Serializable
 data class PhotoPreview(
     val sizes : PhotoSize = PhotoSize()
 )

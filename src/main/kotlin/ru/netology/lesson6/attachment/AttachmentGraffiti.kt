@@ -1,17 +1,11 @@
 package ru.netology.lesson6.attachment
 
-/**
- * Это устаревший тип вложения. Он может быть возвращен лишь для записей,
- * созданных раньше 2013 года. Для более новых записей граффити возвращается в виде вложения с типом photo.
- */
-
-data class AttachmentGraffiti (
-    val graffiti : AttachmentGraffitiContent = AttachmentGraffitiContent(),     //	идентификатор граффити.
-)
+import kotlinx.serialization.Serializable
 
 /**
  * Содержимое вложения graffiti
  */
+@Serializable
 data class AttachmentGraffitiContent (
     val id      : Int = 0,     //	идентификатор граффити.
     val ownerId : Int = 0,     //	идентификатор автора граффити.

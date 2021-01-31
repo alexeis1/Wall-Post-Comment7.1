@@ -1,15 +1,11 @@
 package ru.netology.lesson6.attachment
 
-/**
- * Заметка прикрепленная к посту
- */
-data class AttachmentNote(
-    val note : AttachmentNoteContent = AttachmentNoteContent()
-)
+import kotlinx.serialization.Serializable
 
 /**
  * Содержимое заметки прикрепленная к посту
  */
+@Serializable
 data class AttachmentNoteContent (
     val id           : Int = 0 	  , //  идентификатор заметки.
     val ownerId      : Int = 0 	  , // идентификатор владельца заметки.
@@ -20,4 +16,4 @@ data class AttachmentNoteContent (
     val readComments : Int = 0 	  , // количество прочитанных комментариев (только при запросе информации
                                     // о заметке текущего пользователя).
     val viewUrl      : String = "" //	URL страницы для отображения заметки.
-) : Attachment()
+)

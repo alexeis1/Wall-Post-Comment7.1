@@ -27,7 +27,7 @@ data class Post(
     val copyright      : Copyright    = Copyright(),    //источник материала
     val likes          : Likes        = Likes(),        //информация о лайках к записи, объект с полями:
     val reposts        : Reposts      = Reposts(),      //информация о репостах записи («Рассказать друзьям»),
-    val views_count    : Int = 0,             //информация о просмотрах записи (число записей)
+    val views          : ViewsCount   = ViewsCount(),   //информация о просмотрах записи (число записей)
     val postType       : String = "",         //тип записи, может принимать следующие значения: post, copy, reply, postpone, suggest.
     val postSource     : PostSource? = null,  //информация о способе размещения записи. Описание объекта
                                               //Поле возвращается только для Standalone-приложений с ключом доступа,
@@ -69,9 +69,13 @@ data class Post(
         if (copyright != other.copyright) return false
         if (likes != other.likes) return false
         if (reposts != other.reposts) return false
-        if (views_count != other.views_count) return false
+        if (views != other.views) return false
         if (postType != other.postType) return false
         if (postSource != other.postSource) return false
+        if (attachments != null) {
+            if (other.attachments == null) return false
+            if (!attachments.contentEquals(other.attachments)) return false
+        } else if (other.attachments != null) return false
         if (signerId != other.signerId) return false
         if (copyHistory != null) {
             if (other.copyHistory == null) return false
@@ -103,9 +107,10 @@ data class Post(
         result = 31 * result + copyright.hashCode()
         result = 31 * result + likes.hashCode()
         result = 31 * result + reposts.hashCode()
-        result = 31 * result + views_count
+        result = 31 * result + views.hashCode()
         result = 31 * result + postType.hashCode()
         result = 31 * result + (postSource?.hashCode() ?: 0)
+        result = 31 * result + (attachments?.contentHashCode() ?: 0)
         result = 31 * result + signerId
         result = 31 * result + (copyHistory?.contentHashCode() ?: 0)
         result = 31 * result + canPin.hashCode()
@@ -118,7 +123,16 @@ data class Post(
         result = 31 * result + postponedId
         return result
     }
+
 }
+
+/**
+ * информация о просмотрах записи.
+ */
+@Serializable
+data class ViewsCount(
+    val count : Int = 0
+)
 
 /**
  * Description Place

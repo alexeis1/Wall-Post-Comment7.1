@@ -1,10 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.4.10'
     id 'jacoco'
-    id 'org.jetbrains.kotlin.plugin.serialization' version '1.4.21'
 }
-
-//apply plugin: 'kotlin.plugin.serialization'
 
 group 'ru.netology.lesson6'
 version '1.0-SNAPSHOT'
@@ -14,9 +11,8 @@ repositories {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+   // implementation "org.jetbrains.kotlin:kotlin-stdlib"
     implementation 'junit:junit:4.12'
-    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1'
 }
 
 compileKotlin {

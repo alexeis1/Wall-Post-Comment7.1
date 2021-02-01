@@ -1,11 +1,8 @@
 package ru.netology.lesson6.attachment
 
-import kotlinx.serialization.Serializable
-
 /**
  * Объект, описывающий аудиозапись
  */
-@Serializable
 data class AttachmentAudioContent (
     val id       : Int = 0,     //	идентификатор аудиозаписи.
     val ownerId  : Int = 0,     //	идентификатор владельца аудиозаписи.

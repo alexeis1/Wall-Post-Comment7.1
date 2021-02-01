@@ -1,11 +1,8 @@
 package ru.netology.lesson6.attachment
 
-import kotlinx.serialization.Serializable
-
 /**
  * Содержимое заметки прикрепленная к посту
  */
-@Serializable
 data class AttachmentNoteContent (
     val id           : Int = 0 	  , //  идентификатор заметки.
     val ownerId      : Int = 0 	  , // идентификатор владельца заметки.

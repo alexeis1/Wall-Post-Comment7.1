@@ -1,13 +1,10 @@
 package ru.netology.lesson6
 
-import kotlinx.serialization.Serializable
-
 /**
  * Description
  * класс  PostSource, описывающий способ размещения записи на стене
  */
 
-@Serializable
 data class PostSource(
     val type      : String = SourceType.VK.value, // Варианты из SourceType
     val platform  : String = Platform.ANDROID.value, // Варианты Platform

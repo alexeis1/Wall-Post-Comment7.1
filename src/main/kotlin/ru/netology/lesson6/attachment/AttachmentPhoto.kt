@@ -1,11 +1,7 @@
 package ru.netology.lesson6.attachment
-
-import kotlinx.serialization.Serializable
-
 /**
  * Объект, описывающий фотографию (полученную по ссылке) содержимое
  */
-@Serializable
 data class AttachmentPhotoContent(
     val id      : Int = 0,
     val albumId : Int = 0,
@@ -63,7 +59,6 @@ data class AttachmentPhotoContent(
  * z — пропорциональная копия изображения с максимальным размером 1080x1024;
  * w — пропорциональная копия изображения с максимальным размером 2560x2048px.
  */
-@Serializable
 data class PhotoSize(
     val type  : String = "", //обозначение размера и пропорций копии.
     val url   : String = "", //url копии изображения;

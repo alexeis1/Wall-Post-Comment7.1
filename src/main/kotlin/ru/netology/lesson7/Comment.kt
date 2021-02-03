@@ -7,15 +7,15 @@ import java.util.*
  * Объект, описывающий комментарий к записи
  */
 data class Comment (
-    val postId         : Int,
-    val id             : Int = 0,         //идентификатор комментария.
+    val postId         : Int,         //идентификатор поста, на который написан коментарий
+    val id             : Int = 0,     //идентификатор комментария.
     val fromId         : Int = 0,     //идентификатор автора комментария.
-    val date           : Int = 0,     //дата создания комментария в формате Unixtime.
+    val date           : Int = 0,     //дата создания комментария в формате Unix time.
     val text           : String = "", //текст комментария
     val donut          : CommentDonut = CommentDonut(), //информация о VK Donut.
-    val replyToUser    : Int = 0,   //идентификатор пользователя или сообщества, в ответ которому
-                                    // оставлен текущий комментарий (если применимо).
-    val replyToComment : Int = 0,  //идентификатор комментария, в ответ на который оставлен текущий (если применимо)
+    val replyToUser    : Int = 0,    //идентификатор пользователя или сообщества, в ответ которому
+                                     // оставлен текущий комментарий (если применимо).
+    val replyToComment : Int = 0,    //идентификатор комментария, в ответ на который оставлен текущий (если применимо)
     val attachments    : Array<Attachment> = emptyArray<Attachment>(), //медиавложения комментария (фотографии, ссылки и т.п.).
     val parentsStack   : Stack<Int> = Stack<Int>(),  //массив идентификаторов родительских комментариев.
     val thread         : CommentThread = CommentThread()

@@ -125,8 +125,6 @@ data class Post(
 
 }
 
-class PostNotFoundException(message: String?) : RuntimeException(message)
-
 /**
  * информация о просмотрах записи.
  */

@@ -1,4 +1,4 @@
-package ru.netology.lesson6.attachment
+package ru.netology.lesson7.attachment
 /**
  * Объект, описывающий фотографию (полученную по ссылке) содержимое
  */

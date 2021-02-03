@@ -1,4 +1,4 @@
-package ru.netology.lesson6
+package ru.netology.lesson7
 
 import org.junit.Assert.*
 import org.junit.Test
@@ -57,4 +57,21 @@ class WallServiceTest {
         }
     }
 
+    @Test
+    fun createComment_postIdNotFound() {
+        val service  = WallService()
+        val post1    = Post(id = 0, text = "text 1")
+        val newPost1 = service.add(post1)
+        val comment  = Comment(newPost1.id+1)
+        assertTrue(try { service.createComment(comment); false } catch (e : PostNotFoundException){ true })
+    }
+
+    @Test
+    fun createComment_postIdFound(){
+        val service  = WallService()
+        val post1    = Post(id = 0, text = "text 1")
+        val newPost1 = service.add(post1)
+        val comment  = Comment(newPost1.id)
+        service.createComment(comment)
+    }
 }

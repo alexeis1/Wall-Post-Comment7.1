@@ -1,6 +1,5 @@
-package ru.netology.lesson6
+package ru.netology.lesson7
 
-import ru.netology.lesson6.Post
 import java.util.concurrent.atomic.AtomicInteger
 
 /**
@@ -10,7 +9,9 @@ import java.util.concurrent.atomic.AtomicInteger
 
 class WallService() {
     //массив постов
-    private var posts = emptyArray<Post>()
+    private var posts    = emptyArray<Post>()
+    //массив комментариев
+    private var comments = emptyArray<Comment>()
     //генератор уникальных Id
     private var idGenerator = AtomicInteger()
     private fun generateId() : Int  = idGenerator.incrementAndGet()
@@ -42,5 +43,14 @@ class WallService() {
             posts = rest.plus(post.copy(id = match.first().id, date = match.first().date)).toTypedArray()
         }
         return match.isNotEmpty()
+    }
+    /**
+     * Добавляет комментарий к записи на стене.
+     */
+    fun createComment(comment: Comment) {
+        find { comment.postId == it.id } ?: throw PostNotFoundException(
+            "Ошибка добавления комментария. Пост с id=$comment.postId не найден!")
+
+        comments += comment
     }
 }

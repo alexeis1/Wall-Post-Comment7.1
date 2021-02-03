@@ -1,11 +1,12 @@
-package ru.netology.lesson6
+package ru.netology.lesson7
 
 /**
  * Description data класс для размещения полей поста VK
  * согласно описанию https://vk.com/dev.php?method=post&prefix=objects
  */
 
-import ru.netology.lesson6.attachment.Attachment
+import ru.netology.lesson7.attachment.Attachment
+import java.lang.RuntimeException
 
 //Игнорируйте поля post_source, attachments, geo, copy_history
 data class Post(
@@ -123,6 +124,8 @@ data class Post(
     }
 
 }
+
+class PostNotFoundException(message: String?) : RuntimeException(message)
 
 /**
  * информация о просмотрах записи.

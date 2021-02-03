@@ -1,4 +1,4 @@
-package ru.netology.lesson6
+package ru.netology.lesson7
 /**
  * Домашнее задание к занятию «3.1. Исключения»
  * Задача №1 - PostNotFoundException

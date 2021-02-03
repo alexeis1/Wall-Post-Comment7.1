@@ -1,4 +1,4 @@
-package ru.netology.lesson6.attachment
+package ru.netology.lesson7.attachment
 
 /**
  * Абстрактный класс предок для всех видов

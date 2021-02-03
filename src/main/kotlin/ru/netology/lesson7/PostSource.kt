@@ -1,4 +1,4 @@
-package ru.netology.lesson6
+package ru.netology.lesson7
 
 /**
  * Description
